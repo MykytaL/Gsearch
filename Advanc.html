@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Розширений пошук Google</title>
+    <link rel="stylesheet" type="text/css" href="style.css" >
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="pr1.html">
+                <img src="Google_2015_logo.png" width="160px" height="54px">
+            </a>
+        </div>
+        <div class="nav">
+            <a class="link" href="image.html">Зображення</a>
+            <a class="link" href="Advanc.html">Розширений</a>
+        </div>
+    </header>
+    <div class="h1">
+        <h1>Розширений пошук Google</h1>
+    </div>
+    <div class="advanc"> 
+        <form id="AdvSearchForm">
+            <label>Знайти сторінки, що містять...</label><br><br><br>
+            <label>Усі ці слова:</label><input class="input" type="text" id="as_q" ><br><br>(Введіть важливі слова)<br><br>
+            <label>Точне слово або фразу:</label><input class="input" type="text" id="as_epq" ><br><br>(Візьміть точні слова в лапки)<br><br>
+            <label>Будь-яке з цих слів:</label><input class="input" type="text" id="as_oq"><br><br>(Введіть OR між усіма потрібними словами)<br><br>
+            <label>Жодне з цих слів:</label><input class="input" type="text" id="as_eq"><br><br>(Поставте знак мінус перед небажаними словами)<br><br>
+            <br><input class="subm" type="submit" value="Розширений Пошук">
+        </form>
+    </div>
+    <script>
+        document.getElementById("AdvSearchForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Зупиняємо стандартну дію відправки форми
+
+            var as_q = document.getElementById("as_q").value;
+            var as_epq = document.getElementById("as_epq").value;
+            var as_oq = document.getElementById("as_oq").value;
+            var as_eq = document.getElementById("as_eq").value;
+            var googleSearchUrl = "https://www.google.com/search?as_q=" + encodeURIComponent(as_q) + "&as_epq=" + encodeURIComponent(as_epq) + "&as_oq=" + encodeURIComponent(as_oq) + "&as_eq=" + encodeURIComponent(as_eq);
+
+            // Перенаправлення на сторінку з результатами пошуку Google
+            window.location.href = googleSearchUrl;
+        });
+    </script>
+</body>
+</html>
